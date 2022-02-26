@@ -1,0 +1,62 @@
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid card-top">
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="item">
+            <a >
+<img src="assets/images/product.png">
+<h4 class="text-primary">All Products</h4>
+
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="assets/images/electronics.jfif">
+                <h4  class="text-primary">Electronics</h4>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="assets/images/fashion.jpg">
+                <h4  class="text-primary">Fashion</h4>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="assets/images/jewellery.jfif">
+                <h4  class="text-primary">Jewellary</h4>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="search">
+
+<input [(ngModel)] ="term"  class="form-control w-50 m-auto ">
+
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productList |search:term">
+        <div class=" card col-md-4 m-auto">
+            <img src="{{item.image}}" alt="">
+            <h5  style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>
+            <p style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description }}</p>
+            <p><strong>Price:</strong>${{item.price}}</p>
+            <button class="btn btn-primary" (click)=" addToCart(item)">Add To Cart</button>
+
+        </div>
+    </ng-container>
+    </div>
+</div>
